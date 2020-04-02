@@ -1,0 +1,22 @@
+{
+  "name": "trip-cost",
+  "version": "1.0.0",
+  "description": "Small Node API to keep track of trip expenses",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diogom93/trip-cost.git"
+  },
+  "author": "Diogo Martins",
+  "bugs": {
+    "url": "https://github.com/diogom93/trip-cost/issues"
+  },
+  "homepage": "https://github.com/diogom93/trip-cost#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.5.5"
+  }
+}
