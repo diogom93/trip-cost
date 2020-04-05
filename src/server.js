@@ -1,5 +1,5 @@
 const express = require('express');
-const mongo = require('mongodb');
+const mongo = require('mongodb').MongoClient;
 
 const app = express();
 
@@ -24,6 +24,10 @@ app.get('/trips', (req, res) => {
 
 app.post('/trips', (req, res) => {
   const name = req.body.name;
+  trips.insertOne({name: name}, (err, result) => {
+    if (err) {
+      console.log(error);
+      res.status(500).json({ok: false});
       return;
     }
     console.log(result);
