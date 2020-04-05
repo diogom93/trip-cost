@@ -3,12 +3,32 @@ const mongo = require('mongodb');
 
 const app = express();
 
+const url = 'mongodb://localhost:27017';
+
+let db, trips, expenses;
+mongo.connect(url, (err, client) => {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  db = client.db('tripcost');
+  trips = db.collection('trips');
+  expenses = db.collection('expenses');
+});
+
+app.use(express.json());
+
 app.get('/trips', (req, res) => {
 
 });
 
 app.post('/trips', (req, res) => {
-
+  const name = req.body.name;
+      return;
+    }
+    console.log(result);
+    res.status(200).json({ok: true});
+  });
 });
 
 app.get('/expenses', (req, res) => {
