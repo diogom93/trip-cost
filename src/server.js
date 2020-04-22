@@ -43,6 +43,14 @@ app.post("/trips", (req, res) => {
 
 app.get("/expenses", (req, res) => {});
 
-app.post("/expenses", (req, res) => {});
+app.post("/expenses", (req, res) => {
+  expenses.insertOne({
+    trip: req.body.trip,
+    date: req.body.date,
+    amount: req.body.amount,
+    category: req.body.category,
+    description: req.body.description,
+  });
+});
 
 app.listen(3000, () => console.log("Server up and ready!"));
