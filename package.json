@@ -1,6 +1,7 @@
 {
   "name": "trip-cost",
   "version": "1.0.0",
+  "license": "MIT",
   "description": "Small Node API to keep track of trip expenses",
   "main": "src/server.js",
   "scripts": {
