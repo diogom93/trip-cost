@@ -31,7 +31,7 @@ app.get("/trips", (req, res) => {
 
 app.post("/trips", (req, res) => {
   const name = req.body.name;
-  trips.insertOne({ name: name }, (err, result) => {
+  trips.insertOne({ name: name }, (err) => {
     if (err) {
       console.error(`Error inserting trip: ${error}`);
       res.status(500).json({ ok: false });
@@ -52,7 +52,7 @@ app.post("/expenses", (req, res) => {
       category: req.body.category,
       description: req.body.description,
     },
-    (err, result) => {
+    (err) => {
       if (err) {
         console.error(`Error inserting expense: ${error}`);
         res.status(500).json({ ok: false });
