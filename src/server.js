@@ -1,12 +1,14 @@
+const MongoClient = require("mongodb").MongoClient;
 const express = require("express");
-const mongo = require("mongodb").MongoClient;
 
 const app = express();
 
-const url = "mongodb://localhost:27017";
+const client = new MongoClient("mongodb://localhost:27017", {
+  useUnifiedTopology: true,
+});
 
 let db, trips, expenses;
-mongo.connect(url, (err, client) => {
+client.connect((err, client) => {
   if (err) {
     console.log(err);
     return;
