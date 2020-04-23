@@ -44,7 +44,7 @@ app.post("/trips", (req, res) => {
 });
 
 app.get("/expenses", (req, res) => {
-  expenses.find().toArray((err, result) => {
+  expenses.find({ trip: req.body.trip }).toArray((err, result) => {
     if (err) {
       console.error(`Error getting expenses: ${error}`);
       res.status(500).json({ ok: false });
