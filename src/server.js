@@ -44,13 +44,23 @@ app.post("/trips", (req, res) => {
 app.get("/expenses", (req, res) => {});
 
 app.post("/expenses", (req, res) => {
-  expenses.insertOne({
-    trip: req.body.trip,
-    date: req.body.date,
-    amount: req.body.amount,
-    category: req.body.category,
-    description: req.body.description,
-  });
+  expenses.insertOne(
+    {
+      trip: req.body.trip,
+      date: req.body.date,
+      amount: req.body.amount,
+      category: req.body.category,
+      description: req.body.description,
+    },
+    (err, result) => {
+      if (err) {
+        console.error(`Error inserting expense: ${error}`);
+        res.status(500).json({ ok: false });
+        return;
+      }
+      res.status(200).json({ ok: true });
+    }
+  );
 });
 
 app.listen(3000, () => console.log("Server up and ready!"));
