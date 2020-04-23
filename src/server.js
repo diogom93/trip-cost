@@ -43,7 +43,16 @@ app.post("/trips", (req, res) => {
   });
 });
 
-app.get("/expenses", (req, res) => {});
+app.get("/expenses", (req, res) => {
+  expenses.find().toArray((err, result) => {
+    if (err) {
+      console.error(`Error getting expenses: ${error}`);
+      res.status(500).json({ ok: false });
+      return;
+    }
+    res.status(200).json({ expenses: result });
+  });
+});
 
 app.post("/expenses", (req, res) => {
   expenses.insertOne(
