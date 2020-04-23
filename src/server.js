@@ -3,7 +3,7 @@ const express = require("express");
 
 const app = express();
 
-const client = new MongoClient("mongodb://localhost:27017", {
+const client = new MongoClient("mongodb://mongo:27017", {
   useUnifiedTopology: true,
 });
 
